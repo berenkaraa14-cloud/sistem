@@ -3,39 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LiveChat AI | Premium Destek</title>
+    <title>LiveChat AI | Premium Destek Platformu</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 text-gray-900">
 
-    <nav class="flex justify-between items-center py-6 px-10 bg-white border-b">
+    <nav class="flex justify-between items-center py-6 px-10 bg-white border-b sticky top-0 z-50">
         <div class="text-2xl font-bold text-blue-600">LiveChat AI</div>
     </nav>
 
     <header class="text-center py-20 px-6 bg-white">
         <h1 class="text-5xl font-extrabold mb-6">Müşterilerinizle anında bağ kurun.</h1>
-        <p class="text-lg text-gray-500 mb-10 max-w-2xl mx-auto">Satışlarınızı artırın, müşteri memnuniyetini zirveye taşıyın ve desteğinizi yapay zeka ile otomatikleştirin.</p>
+        <p class="text-lg text-gray-500 mb-10 max-w-2xl mx-auto">Satışlarınızı %30 artırın, müşteri memnuniyetini zirveye taşıyın.</p>
     </header>
 
-    <section class="py-16 px-6 max-w-4xl mx-auto">
+    <section class="py-16 px-6 max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
+        <div class="text-center p-6 bg-white rounded-xl shadow-sm border">
+            <h3 class="font-bold mb-2">7/24 Destek</h3>
+            <p class="text-sm text-gray-500">Sizi asla yalnız bırakmıyoruz, her an yanınızdayız.</p>
+        </div>
+        <div class="text-center p-6 bg-white rounded-xl shadow-sm border">
+            <h3 class="font-bold mb-2">Hızlı Kurulum</h3>
+            <p class="text-sm text-gray-500">Sitenize entegre etmeniz sadece birkaç dakikanızı alır.</p>
+        </div>
+        <div class="text-center p-6 bg-white rounded-xl shadow-sm border">
+            <h3 class="font-bold mb-2">Yapay Zeka Destekli</h3>
+            <p class="text-sm text-gray-500">Gelişmiş botlar ile satışlarınızı otomatikleştirin.</p>
+        </div>
+    </section>
+
+    <section id="planlar" class="py-16 px-6 max-w-4xl mx-auto">
         <h2 class="text-3xl font-bold text-center mb-10">Premium Planlar</h2>
-        
         <div class="grid md:grid-cols-3 gap-6">
             <div class="bg-white p-6 rounded-xl border text-center shadow-sm">
                 <h3 class="font-bold text-lg">Aylık</h3>
                 <p class="text-2xl font-bold my-4">49$</p>
-                <button onclick="showPayment('49$ Aylık')" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Bu Paketi Seç</button>
+                <button onclick="showPayment('49$ Aylık')" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Seç</button>
             </div>
             <div class="bg-white p-6 rounded-xl border-2 border-blue-600 text-center shadow-lg">
                 <h3 class="font-bold text-lg text-blue-600">6 Aylık</h3>
                 <p class="text-2xl font-bold my-4">249$</p>
-                <button onclick="showPayment('249$ 6 Aylık')" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Bu Paketi Seç</button>
+                <button onclick="showPayment('249$ 6 Aylık')" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Seç</button>
             </div>
             <div class="bg-white p-6 rounded-xl border text-center shadow-sm">
                 <h3 class="font-bold text-lg">1 Yıllık</h3>
                 <p class="text-2xl font-bold my-4">399$</p>
-                <button onclick="showPayment('399$ 1 Yıllık')" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Bu Paketi Seç</button>
+                <button onclick="showPayment('399$ 1 Yıllık')" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Seç</button>
             </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-6 max-w-3xl mx-auto">
+        <h2 class="text-2xl font-bold mb-8 text-center">Sıkça Sorulan Sorular</h2>
+        <div class="space-y-4">
+            <div class="bg-white p-4 rounded-lg border"><strong>Kurulum ne kadar sürer?</strong> <p class="text-sm text-gray-500 mt-1">Ödemeden sonra en geç 1 saat içinde kurulumunuz tamamlanır.</p></div>
+            <div class="bg-white p-4 rounded-lg border"><strong>Hangi ödeme yöntemleri var?</strong> <p class="text-sm text-gray-500 mt-1">Şu an sadece USDT (TRC20) ile ödeme kabul ediyoruz.</p></div>
         </div>
     </section>
 
@@ -43,7 +65,6 @@
         <div class="bg-white p-8 rounded-2xl border shadow-xl">
             <h3 class="font-bold text-xl mb-4">Ödeme Adresi (TRC20)</h3>
             <div class="bg-gray-100 p-3 rounded-lg font-mono text-sm break-all mb-6">BURAYA_USDT_ADRESINI_YAZ</div>
-            <p class="text-xs text-red-500 mb-6">Ödemeyi yaptıktan sonra TXID'nizi kopyalayın ve aşağıdan bildirin.</p>
             <a id="wp-link" href="#" class="block bg-green-600 text-white font-bold py-3 rounded-xl hover:bg-green-700">ÖDEMEYİ BİLDİR (WHATSAPP)</a>
         </div>
     </section>
