@@ -8,6 +8,7 @@
     <style>
         .accordion-content { display: none; }
         .active .accordion-content { display: block; }
+        .whatsapp-float { position: fixed; bottom: 20px; right: 20px; z-index: 100; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
@@ -60,12 +61,20 @@
                 <strong>Kurulum ne kadar sürer? ▾</strong>
                 <p class="accordion-content text-sm text-gray-500 mt-2">Ödemeniz onaylandıktan sonra en geç 1 saat içerisinde sisteminiz aktif edilir.</p>
             </div>
-            <div class="bg-white p-4 rounded-lg border cursor-pointer" onclick="this.classList.toggle('active')">
-                <strong>Hangi ödeme yöntemleri var? ▾</strong>
-                <p class="accordion-content text-sm text-gray-500 mt-2">Şu an sadece USDT (TRC20 ağında) ödeme kabul etmekteyiz.</p>
-            </div>
         </div>
     </section>
+
+    <section class="py-10 bg-gray-100 text-center text-gray-600">
+        <div class="flex justify-center gap-10">
+            <div>⚡ Hızlı Aktivasyon</div>
+            <div>🔒 %100 Güvenli Ödeme</div>
+            <div>💬 7/24 Teknik Destek</div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/905XXXXXXXXX" class="whatsapp-float bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition">
+        💬 Destek Al
+    </a>
 
     <script>
         function showPayment(plan) {
