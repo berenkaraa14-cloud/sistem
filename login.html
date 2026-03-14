@@ -2,38 +2,50 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kayıt Ol</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
     <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
-        <input type="text" id="ad_soyad" placeholder="Ad Soyad" class="w-full p-3 mb-4 border rounded-lg">
-        <input type="email" id="email" placeholder="E-posta" class="w-full p-3 mb-4 border rounded-lg">
-        <input type="password" id="password" placeholder="Şifre" class="w-full p-3 mb-4 border rounded-lg">
-        <button id="kayitBtn" class="w-full bg-orange-500 text-white py-3 rounded-lg font-bold">Kayıt Ol</button>
+        <h2 class="text-2xl font-bold mb-6 text-center text-orange-500">Hesap Oluştur</h2>
+        <input type="text" id="ad_soyad" placeholder="Ad Soyad" class="w-full p-3 mb-4 border rounded-lg outline-none">
+        <input type="email" id="email" placeholder="E-posta" class="w-full p-3 mb-4 border rounded-lg outline-none">
+        <input type="password" id="password" placeholder="Şifre" class="w-full p-3 mb-4 border rounded-lg outline-none">
+        <button id="kayitBtn" class="w-full bg-orange-500 text-white py-3 rounded-lg font-bold hover:bg-orange-600 transition">Kayıt Ol</button>
     </div>
 
     <script>
-        // Bağlantıyı düzgün kapattık
+        // 1. Supabase Bağlantısı
         const supabase = supabase.createClient(
             'https://xkjpitfhkhkaieggzcwlv.supabase.co', 
             'sb_publishable_e0_kcSm46jmgGmfRcbQe2Q_aAKAvvy-'
         );
 
+        // 2. Butona tıklandığında çalışacak kod
         document.getElementById('kayitBtn').addEventListener('click', async () => {
             const ad = document.getElementById('ad_soyad').value;
             const em = document.getElementById('email').value;
             const pw = document.getElementById('password').value;
 
+            // Kontrol: Alanlar boş mu?
+            if (!ad || !em || !pw) {
+                alert("Lütfen tüm alanları doldur!");
+                return;
+            }
+
+            // Veritabanına Ekleme
             const { error } = await supabase.from('profiles').insert([
                 { full_name: ad, email: em, password: pw }
             ]);
 
             if (error) {
-                alert("Hata: " + error.message);
+                alert("Hata oluştu: " + error.message);
+                console.error("Hata detayları:", error);
             } else {
-                alert("Kayıt Başarılı!");
+                alert("Kayıt başarılı! Şimdi index sayfasına yönlendiriliyorsun.");
+                window.location.href = 'index.html';
             }
         });
     </script>
