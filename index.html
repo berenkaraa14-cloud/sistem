@@ -8,65 +8,49 @@
     <style>
         .contact-float { position: fixed; bottom: 20px; right: 20px; z-index: 100; display: flex; flex-direction: column; gap: 10px; }
         .btn-float { padding: 12px 20px; border-radius: 50px; font-weight: bold; color: white; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .marquee { overflow: hidden; white-space: nowrap; background: #f97316; color: white; padding: 10px 0; font-weight: bold; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans">
 
+    <div class="marquee">⚡ Sınırlı Süreli Kampanya: 6 Aylık Paketlerde %20 İndirim Fırsatını Kaçırmayın! ⚡</div>
+
     <nav class="flex justify-between items-center py-6 px-10 bg-white border-b sticky top-0 z-50">
-        <div class="text-2xl font-bold text-blue-600 tracking-tighter">LiveChat AI</div>
+        <div class="text-2xl font-bold text-orange-500 tracking-tighter">LiveChat AI</div>
     </nav>
 
     <header class="text-center py-20 px-6 bg-white">
-        <h1 class="text-5xl font-extrabold mb-6">Müşterilerinizle anında bağ kurun.</h1>
+        <h1 class="text-5xl font-extrabold mb-6">Müşterilerinizle anında <span class="text-orange-500">bağ kurun.</span></h1>
         <p class="text-xl text-gray-500 mb-10 max-w-2xl mx-auto">Yapay zeka destekli altyapımızla destek süreçlerinizi %90 otomatikleştirin.</p>
-        <a href="#planlar" class="bg-blue-600 text-white px-8 py-4 rounded-full font-bold hover:bg-blue-700 transition">Hemen Başla</a>
+        <a href="#planlar" class="bg-orange-500 text-white px-8 py-4 rounded-full font-bold hover:bg-orange-600 transition">Hemen Başla</a>
     </header>
 
-    <section class="py-10 bg-blue-600 text-white text-center">
+    <section class="py-10 bg-orange-500 text-white text-center">
         <div class="max-w-4xl mx-auto grid grid-cols-3 gap-8">
-            <div><h3 class="text-3xl font-bold">+500</h3><p class="text-blue-100">Mutlu Müşteri</p></div>
-            <div><h3 class="text-3xl font-bold">%99</h3><p class="text-blue-100">Başarı Oranı</p></div>
-            <div><h3 class="text-3xl font-bold">24/7</h3><p class="text-blue-100">Aktif Destek</p></div>
-        </div>
-    </section>
-
-    <section class="py-20 px-6 max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-16">Hizmetlerimiz</h2>
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="flex items-start p-6 bg-white rounded-xl border">🚀 <span class="ml-4 font-semibold">Yapay Zeka ile Otomatik Cevaplama</span></div>
-            <div class="flex items-start p-6 bg-white rounded-xl border">🌐 <span class="ml-4 font-semibold">Çoklu Dil ve Global Desteği</span></div>
-            <div class="flex items-start p-6 bg-white rounded-xl border">📊 <span class="ml-4 font-semibold">Detaylı Analiz Paneli</span></div>
-            <div class="flex items-start p-6 bg-white rounded-xl border">🛠️ <span class="ml-4 font-semibold">7/24 Bot Aktivasyonu</span></div>
+            <div><h3 class="text-3xl font-bold">+500</h3><p class="text-orange-100">Mutlu Müşteri</p></div>
+            <div><h3 class="text-3xl font-bold">%99</h3><p class="text-orange-100">Başarı Oranı</p></div>
+            <div><h3 class="text-3xl font-bold">24/7</h3><p class="text-orange-100">Aktif Destek</p></div>
         </div>
     </section>
 
     <section id="planlar" class="py-20 px-6 max-w-5xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-12">Premium Planlar</h2>
+        <h2 class="text-3xl font-bold text-center mb-12">Premium <span class="text-orange-500">Planlar</span></h2>
         <div class="grid md:grid-cols-3 gap-8">
             <div class="bg-white p-8 rounded-2xl border shadow-sm text-center">
                 <h3 class="font-bold text-lg">Aylık</h3>
                 <p class="text-4xl font-bold my-6">49$</p>
                 <button onclick="showPayment('49$ Aylık')" class="w-full bg-gray-900 text-white py-3 rounded-lg hover:bg-gray-800">Seç</button>
             </div>
-            <div class="bg-white p-8 rounded-2xl border-2 border-blue-600 shadow-xl text-center transform md:scale-105">
-                <h3 class="font-bold text-lg text-blue-600">6 Aylık</h3>
+            <div class="bg-white p-8 rounded-2xl border-2 border-orange-500 shadow-xl text-center transform md:scale-105">
+                <span class="bg-orange-500 text-white text-xs px-3 py-1 rounded-full font-bold">POPÜLER</span>
+                <h3 class="font-bold text-lg text-orange-500 mt-4">6 Aylık</h3>
                 <p class="text-4xl font-bold my-6">249$</p>
-                <button onclick="showPayment('249$ 6 Aylık')" class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700">Seç</button>
+                <button onclick="showPayment('249$ 6 Aylık')" class="w-full bg-orange-500 text-white py-3 rounded-lg hover:bg-orange-600">Seç</button>
             </div>
             <div class="bg-white p-8 rounded-2xl border shadow-sm text-center">
                 <h3 class="font-bold text-lg">1 Yıllık</h3>
                 <p class="text-4xl font-bold my-6">399$</p>
                 <button onclick="showPayment('399$ 1 Yıllık')" class="w-full bg-gray-900 text-white py-3 rounded-lg hover:bg-gray-800">Seç</button>
-            </div>
-        </div>
-    </section>
-
-    <section id="payment-box" class="hidden py-10 px-6 max-w-md mx-auto text-center">
-        <div class="bg-white p-8 rounded-2xl border shadow-xl">
-            <h3 class="font-bold text-xl mb-4">Ödeme Adresi (TRC20)</h3>
-            <div class="flex items-center justify-between bg-gray-100 p-3 rounded-lg mb-4">
-                <span id="wallet-address" class="font-mono text-sm break-all">TBCXXXXXXXXXXXXXXXXXXXXXXX</span>
-                <button onclick="copyAddress()" class="ml-2 text-xs bg-blue-600 text-white px-2 py-1 rounded">Kopyala</button>
             </div>
         </div>
     </section>
@@ -80,10 +64,6 @@
         function showPayment(plan) {
             document.getElementById('payment-box').classList.remove('hidden');
             document.getElementById('payment-box').scrollIntoView({ behavior: 'smooth' });
-        }
-        function copyAddress() {
-            navigator.clipboard.writeText("TBCXXXXXXXXXXXXXXXXXXXXXXX");
-            alert("Adres kopyalandı!");
         }
     </script>
 </body>
