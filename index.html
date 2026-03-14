@@ -22,7 +22,7 @@
     <header class="text-center py-20 px-6 bg-white">
         <h1 class="text-5xl font-extrabold mb-6">Müşterilerinizle anında <span class="text-orange-500">bağ kurun.</span></h1>
         <p class="text-xl text-gray-500 mb-10 max-w-2xl mx-auto">Yapay zeka destekli altyapımızla destek süreçlerinizi %90 otomatikleştirin.</p>
-        <a href="#planlar" class="bg-orange-500 text-white px-8 py-4 rounded-full font-bold hover:bg-orange-600 transition">Hemen Başla</a>
+        <a href="login.html" class="bg-orange-500 text-white px-8 py-4 rounded-full font-bold hover:bg-orange-600 transition">Hemen Başla</a>
     </header>
 
     <section class="py-10 bg-orange-500 text-white text-center">
@@ -39,46 +39,29 @@
             <div class="bg-white p-8 rounded-2xl border shadow-sm text-center">
                 <h3 class="font-bold text-lg">Aylık</h3>
                 <p class="text-4xl font-bold my-6">49$</p>
-                <button onclick="showPayment('49$ Aylık')" class="w-full bg-gray-900 text-white py-3 rounded-lg hover:bg-gray-800">Seç</button>
+                <a href="login.html" class="block w-full bg-gray-900 text-white py-3 rounded-lg hover:bg-gray-800">Seç</a>
             </div>
             <div class="bg-white p-8 rounded-2xl border-2 border-orange-500 shadow-xl text-center transform md:scale-105">
                 <span class="bg-orange-500 text-white text-xs px-3 py-1 rounded-full font-bold">POPÜLER</span>
                 <h3 class="font-bold text-lg text-orange-500 mt-4">6 Aylık</h3>
                 <p class="text-4xl font-bold my-6">249$</p>
-                <button onclick="showPayment('249$ 6 Aylık')" class="w-full bg-orange-500 text-white py-3 rounded-lg hover:bg-orange-600">Seç</button>
+                <a href="login.html" class="block w-full bg-orange-500 text-white py-3 rounded-lg hover:bg-orange-600">Seç</a>
             </div>
             <div class="bg-white p-8 rounded-2xl border shadow-sm text-center">
                 <h3 class="font-bold text-lg">1 Yıllık</h3>
                 <p class="text-4xl font-bold my-6">399$</p>
-                <button onclick="showPayment('399$ 1 Yıllık')" class="w-full bg-gray-900 text-white py-3 rounded-lg hover:bg-gray-800">Seç</button>
+                <a href="login.html" class="block w-full bg-gray-900 text-white py-3 rounded-lg hover:bg-gray-800">Seç</a>
             </div>
         </div>
     </section>
 
-    <section id="payment-box" class="hidden py-10 px-6 max-w-md mx-auto text-center">
-        <div class="bg-white p-8 rounded-2xl border shadow-xl">
-            <h3 class="font-bold text-xl mb-4">Ödeme Adresi (TRC20)</h3>
-            <div class="flex items-center justify-between bg-gray-100 p-3 rounded-lg mb-4">
-                <span id="wallet-address" class="font-mono text-sm break-all">TBCXXXXXXXXXXXXXXXXXXXXXXX</span>
-                <button onclick="copyAddress()" class="ml-2 text-xs bg-orange-500 text-white px-2 py-1 rounded">Kopyala</button>
-            </div>
-        </div>
-    </section>
+    <footer class="py-12 bg-gray-900 text-white text-center">
+        <p>©️ 2026 LiveChat AI. Tüm hakları saklıdır.</p>
+    </footer>
 
     <div class="contact-float">
         <a href="https://wa.me/905XXXXXXXXX" class="btn-float bg-green-500 hover:bg-green-600 transition">💬 WhatsApp</a>
         <a href="https://t.me/KULLANICI_ADIN" class="btn-float bg-blue-500 hover:bg-blue-600 transition">✈️ Telegram</a>
     </div>
-
-    <script>
-        function showPayment(plan) {
-            document.getElementById('payment-box').classList.remove('hidden');
-            document.getElementById('payment-box').scrollIntoView({ behavior: 'smooth' });
-        }
-        function copyAddress() {
-            navigator.clipboard.writeText("TBCXXXXXXXXXXXXXXXXXXXXXXX");
-            alert("Adres kopyalandı!");
-        }
-    </script>
 </body>
 </html>
