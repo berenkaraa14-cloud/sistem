@@ -15,9 +15,11 @@
     </div>
 
     <script>
+        // Bağlantıyı düzgün kapattık
         const supabase = supabase.createClient(
             'https://xkjpitfhkhkaieggzcwlv.supabase.co', 
-            'sb_publishable_e0_kcSm46jmgGmfRcbQe2Q_aAKAvvy-';
+            'sb_publishable_e0_kcSm46jmgGmfRcbQe2Q_aAKAvvy-'
+        );
 
         document.getElementById('kayitBtn').addEventListener('click', async () => {
             const ad = document.getElementById('ad_soyad').value;
@@ -31,8 +33,7 @@
             if (error) {
                 alert("Hata: " + error.message);
             } else {
-                alert("Kayıt başarılı!");
-                window.location.href = 'index.html';
+                alert("Kayıt Başarılı!");
             }
         });
     </script>
