@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LiveChat AI | Premium Paketler</title>
+    <title>LiveChat AI | Premium Destek</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 text-gray-900">
@@ -11,6 +11,11 @@
     <nav class="flex justify-between items-center py-6 px-10 bg-white border-b">
         <div class="text-2xl font-bold text-blue-600">LiveChat AI</div>
     </nav>
+
+    <header class="text-center py-20 px-6 bg-white">
+        <h1 class="text-5xl font-extrabold mb-6">Müşterilerinizle anında bağ kurun.</h1>
+        <p class="text-lg text-gray-500 mb-10 max-w-2xl mx-auto">Satışlarınızı artırın, müşteri memnuniyetini zirveye taşıyın ve desteğinizi yapay zeka ile otomatikleştirin.</p>
+    </header>
 
     <section class="py-16 px-6 max-w-4xl mx-auto">
         <h2 class="text-3xl font-bold text-center mb-10">Premium Planlar</h2>
@@ -37,11 +42,8 @@
     <section id="payment-box" class="hidden pb-20 px-6 max-w-md mx-auto text-center">
         <div class="bg-white p-8 rounded-2xl border shadow-xl">
             <h3 class="font-bold text-xl mb-4">Ödeme Adresi (TRC20)</h3>
-            <p class="text-sm text-gray-500 mb-4">Lütfen seçtiğiniz tutarı aşağıdaki adrese gönderin.</p>
             <div class="bg-gray-100 p-3 rounded-lg font-mono text-sm break-all mb-6">BURAYA_USDT_ADRESINI_YAZ</div>
-            
-            <p class="text-xs text-red-500 mb-6">Ödemeyi yaptıktan sonra TXID numaranızı kopyalayın ve aşağıdan bildirin.</p>
-            
+            <p class="text-xs text-red-500 mb-6">Ödemeyi yaptıktan sonra TXID'nizi kopyalayın ve aşağıdan bildirin.</p>
             <a id="wp-link" href="#" class="block bg-green-600 text-white font-bold py-3 rounded-xl hover:bg-green-700">ÖDEMEYİ BİLDİR (WHATSAPP)</a>
         </div>
     </section>
@@ -51,6 +53,7 @@
             document.getElementById('payment-box').classList.remove('hidden');
             const link = "https://wa.me/905XXXXXXXXX?text=Merhaba, " + plan + " paketini satın aldım. Ödeme TXID numaram: ";
             document.getElementById('wp-link').href = link;
+            document.getElementById('payment-box').scrollIntoView({ behavior: 'smooth' });
         }
     </script>
 </body>
