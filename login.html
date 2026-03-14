@@ -2,18 +2,42 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Giriş Yap | LiveChat AI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kayıt Ol | LiveChat AI</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 flex items-center justify-center h-screen">
-    <div class="bg-white p-8 rounded-2xl shadow-xl w-96">
-        <h2 class="text-2xl font-bold mb-6 text-center text-orange-500">Üyelik Oluştur</h2>
-        <form action="https://wa.me/905XXXXXXXXX" method="GET" target="_blank">
-            <input type="text" name="text" placeholder="Adınız Soyadınız" class="w-full p-3 mb-4 border rounded-lg" required>
-            <input type="email" placeholder="E-posta Adresiniz" class="w-full p-3 mb-4 border rounded-lg" required>
-            <button type="submit" class="w-full bg-orange-500 text-white py-3 rounded-lg font-bold hover:bg-orange-600">Kayıt Talebi Oluştur</button>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-6">
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
+        <h2 class="text-2xl font-bold mb-6 text-center text-orange-500">Hesap Oluştur</h2>
+        
+        <form action="https://wa.me/905XXXXXXXXX" method="GET" target="_blank" class="space-y-4">
+            <input type="hidden" name="text" value="Merhaba, yeni bir üyelik kaydı oluşturmak istiyorum. Bilgilerim aşağıdadır:">
+            
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Ad Soyad</label>
+                <input type="text" name="ad_soyad" required class="w-full p-3 mt-1 border rounded-lg focus:ring-2 focus:ring-orange-500 outline-none">
+            </div>
+            
+            <div>
+                <label class="block text-sm font-medium text-gray-700">E-posta Adresi</label>
+                <input type="email" name="email" required class="w-full p-3 mt-1 border rounded-lg focus:ring-2 focus:ring-orange-500 outline-none">
+            </div>
+            
+            <div>
+                <label class="block text-sm font-medium text-gray-700">Seçtiğiniz Paket</label>
+                <select name="paket" class="w-full p-3 mt-1 border rounded-lg outline-none">
+                    <option value="Aylık">Aylık Paket</option>
+                    <option value="6 Aylık">6 Aylık Paket</option>
+                    <option value="1 Yıllık">1 Yıllık Paket</option>
+                </select>
+            </div>
+
+            <button type="submit" class="w-full bg-orange-500 text-white py-3 rounded-lg font-bold hover:bg-orange-600 transition mt-4">Kayıt Talebi Gönder</button>
         </form>
-        <p class="mt-4 text-center text-sm text-gray-500">Zaten üye misin? <a href="index.html" class="text-blue-500">Ana sayfaya dön</a></p>
+
+        <p class="mt-6 text-center text-sm text-gray-500">
+            Zaten üye misin? <a href="index.html" class="text-orange-500 font-bold hover:underline">Giriş Yap</a>
+        </p>
     </div>
 </body>
 </html>
