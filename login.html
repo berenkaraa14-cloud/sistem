@@ -2,41 +2,30 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kayıt Ol | LiveChat AI</title>
+    <title>Kayıt Ol</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen p-6">
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
     <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
-        <h2 class="text-2xl font-bold mb-6 text-center text-orange-500">Hesap Oluştur</h2>
-        
-        <div class="space-y-4">
-            <div>
-                <label class="block text-sm font-medium text-gray-700">Ad Soyad</label>
-                <input type="text" id="ad_soyad" class="w-full p-3 mt-1 border rounded-lg focus:ring-2 focus:ring-orange-500 outline-none">
-            </div>
-            <div>
-                <label class="block text-sm font-medium text-gray-700">E-posta Adresi</label>
-                <input type="email" id="email" class="w-full p-3 mt-1 border rounded-lg focus:ring-2 focus:ring-orange-500 outline-none">
-            </div>
-            <div>
-                <label class="block text-sm font-medium text-gray-700">Şifre</label>
-                <input type="password" id="password" class="w-full p-3 mt-1 border rounded-lg focus:ring-2 focus:ring-orange-500 outline-none">
-            </div>
-            <button id="kayitBtn" class="w-full bg-orange-500 text-white py-3 rounded-lg font-bold hover:bg-orange-600 transition mt-4">Kayıt Ol</button>
-        </div>
+        <input type="text" id="ad_soyad" placeholder="Ad Soyad" class="w-full p-3 mb-4 border rounded-lg">
+        <input type="email" id="email" placeholder="E-posta" class="w-full p-3 mb-4 border rounded-lg">
+        <input type="password" id="password" placeholder="Şifre" class="w-full p-3 mb-4 border rounded-lg">
+        <button id="kayitBtn" class="w-full bg-orange-500 text-white py-3 rounded-lg font-bold">Kayıt Ol</button>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
-        const supabase = supabase.createClient('https://xkjpitfhkhkaieggzcwlv.supabase.co', 'sb_publishable_e0_kcSm46jmgGmfRcbQe2Q_aAKAvvy-';
-        document.getElementById('kayitBtn').addEventListener('click', async () => {
-            const adSoyad = document.getElementById('ad_soyad').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+        const supabase = supabase.createClient(
+            'https://xkjpitfhkhkaieggzcwlv.supabase.co', 
+            'sb_publishable_e0_kcSm46jmgGmfRcbQe2Q_aAKAvvy-';
 
-            const { data, error } = await supabase.from('profiles').insert([
-                { full_name: adSoyad, email: email, password: password }
+        document.getElementById('kayitBtn').addEventListener('click', async () => {
+            const ad = document.getElementById('ad_soyad').value;
+            const em = document.getElementById('email').value;
+            const pw = document.getElementById('password').value;
+
+            const { error } = await supabase.from('profiles').insert([
+                { full_name: ad, email: em, password: pw }
             ]);
 
             if (error) {
