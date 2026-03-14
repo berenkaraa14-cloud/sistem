@@ -29,7 +29,7 @@
         <div class="max-w-4xl mx-auto grid grid-cols-3 gap-8">
             <div><h3 class="text-3xl font-bold">+500</h3><p class="text-orange-100">Mutlu Müşteri</p></div>
             <div><h3 class="text-3xl font-bold">%99</h3><p class="text-orange-100">Başarı Oranı</p></div>
-            <div><h3 class="text-3xl font-bold">24/7</h3><p class="text-orange-100">Aktif Destek</p></div>
+            <div><h3 class="text-3xl font-bold">7/24</h3><p class="text-orange-100">Sınırsız Hizmet</p></div>
         </div>
     </section>
 
@@ -55,6 +55,16 @@
         </div>
     </section>
 
+    <section id="payment-box" class="hidden py-10 px-6 max-w-md mx-auto text-center">
+        <div class="bg-white p-8 rounded-2xl border shadow-xl">
+            <h3 class="font-bold text-xl mb-4">Ödeme Adresi (TRC20)</h3>
+            <div class="flex items-center justify-between bg-gray-100 p-3 rounded-lg mb-4">
+                <span id="wallet-address" class="font-mono text-sm break-all">TBCXXXXXXXXXXXXXXXXXXXXXXX</span>
+                <button onclick="copyAddress()" class="ml-2 text-xs bg-orange-500 text-white px-2 py-1 rounded">Kopyala</button>
+            </div>
+        </div>
+    </section>
+
     <div class="contact-float">
         <a href="https://wa.me/905XXXXXXXXX" class="btn-float bg-green-500 hover:bg-green-600 transition">💬 WhatsApp</a>
         <a href="https://t.me/KULLANICI_ADIN" class="btn-float bg-blue-500 hover:bg-blue-600 transition">✈️ Telegram</a>
@@ -64,6 +74,10 @@
         function showPayment(plan) {
             document.getElementById('payment-box').classList.remove('hidden');
             document.getElementById('payment-box').scrollIntoView({ behavior: 'smooth' });
+        }
+        function copyAddress() {
+            navigator.clipboard.writeText("TBCXXXXXXXXXXXXXXXXXXXXXXX");
+            alert("Adres kopyalandı!");
         }
     </script>
 </body>
