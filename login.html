@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kayıt Ol | LiveChat AI</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen p-6">
     <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
@@ -24,18 +23,14 @@
                 <label class="block text-sm font-medium text-gray-700">Şifre</label>
                 <input type="password" id="password" class="w-full p-3 mt-1 border rounded-lg focus:ring-2 focus:ring-orange-500 outline-none">
             </div>
-            <button onclick="kayitOl()" class="w-full bg-orange-500 text-white py-3 rounded-lg font-bold hover:bg-orange-600 transition mt-4">Kayıt Ol</button>
+            <button id="kayitBtn" class="w-full bg-orange-500 text-white py-3 rounded-lg font-bold hover:bg-orange-600 transition mt-4">Kayıt Ol</button>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
-        // SUPABASE BAĞLANTISI
-        const supabaseUrl = 'https://xkjpitfhkhkaieggzcwlv.supabase.co';
-        const supabaseKey = 'sb_publishable_e0_kcSm46jmgGmfRcbQe2Q_aAKAvvy-';
-        
-        const supabase = supabase.createClient(supabaseUrl, supabaseKey);
-
-        async function kayitOl() {
+        const supabase = supabase.createClient('https://xkjpitfhkhkaieggzcwlv.supabase.co', 'sb_publishable_e0_kcSm46jmgGmfRcbQe2Q_aAKAvvy-';
+        document.getElementById('kayitBtn').addEventListener('click', async () => {
             const adSoyad = document.getElementById('ad_soyad').value;
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
@@ -47,10 +42,10 @@
             if (error) {
                 alert("Hata: " + error.message);
             } else {
-                alert("Kayıt başarılı! Şimdi giriş yapabilirsin.");
+                alert("Kayıt başarılı!");
                 window.location.href = 'index.html';
             }
-        }
+        });
     </script>
 </body>
 </html>
