@@ -3,66 +3,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LiveChat AI | Premium Yazılım</title>
+    <title>LiveChat AI | Yapay Zeka Canlı Destek</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .bg-gradient-hero {
+            background: linear-gradient(to right, #fdf2e9, #f9f0ec);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #e87a2a, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
         .contact-float { position: fixed; bottom: 20px; right: 20px; z-index: 100; display: flex; flex-direction: column; gap: 10px; }
         .btn-float { padding: 12px 20px; border-radius: 50px; font-weight: bold; color: white; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .marquee { overflow: hidden; white-space: nowrap; background: #f97316; color: white; padding: 10px 0; font-weight: bold; }
-        .hidden-box { display: none; } /* Başta gizli olacak */
+        .price-box { transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; cursor: pointer; }
+        .price-box:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+        .hidden-content { display: none; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans">
+<body class="bg-gray-50 text-gray-800 antialiased">
 
-    <div class="marquee">⚡ Sınırlı Süreli Kampanya: 6 Aylık Paketlerde %20 İndirim Fırsatını Kaçırmayın! ⚡</div>
-
-    <nav class="flex justify-between items-center py-6 px-10 bg-white border-b sticky top-0 z-50">
-        <div class="text-2xl font-bold text-orange-500 tracking-tighter">LiveChat AI</div>
+    <nav class="sticky top-0 z-50 bg-white shadow-sm py-4 px-6 md:px-10 flex justify-between items-center">
+        <div class="flex items-center space-x-8">
+            <div class="text-3xl font-extrabold text-orange-500">LiveChat AI</div>
+            <div class="hidden md:flex space-x-6 text-gray-600 font-medium">
+                <a href="#" class="hover:text-orange-500 transition">Ürün</a>
+                <a href="#planlar" class="hover:text-orange-500 transition">Fiyatlandırma</a>
+                <a href="#" class="hover:text-orange-500 transition">Müşteriler</a>
+                <a href="#" class="hover:text-orange-500 transition">Kaynaklar</a>
+            </div>
+        </div>
+        <div class="space-x-4">
+            <button class="text-gray-600 font-medium hover:text-orange-500 transition">Giriş Yap</button>
+            <button class="bg-orange-500 text-white px-5 py-2 rounded-full font-bold hover:bg-orange-600 transition">Ücretsiz Kaydol</button>
+        </div>
     </nav>
 
-    <header class="text-center py-20 px-6 bg-white">
-        <h1 class="text-5xl font-extrabold mb-6">Müşterilerinizle anında <span class="text-orange-500">bağ kurun.</span></h1>
-        <p class="text-xl text-gray-500 mb-10 max-w-2xl mx-auto">Yapay zeka destekli altyapımızla destek süreçlerinizi %90 otomatikleştirin.</p>
-        <a href="#odeme-bolumu" class="bg-orange-500 text-white px-8 py-4 rounded-full font-bold hover:bg-orange-600 transition">Hemen Başla</a>
+    <header class="bg-gradient-hero py-20 md:py-32 px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+                Müşterilerinizle anında <span class="text-gradient">bağ kurun.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 mb-10 max-w-2xl mx-auto">
+                Yapay zeka destekli altyapımızla destek süreçlerinizi <span class="font-bold text-orange-500">%90 otomatikleştirin.</span>
+            </p>
+            <a href="#planlar" class="bg-orange-500 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-orange-600 transition transform hover:scale-105 inline-block">
+                Hemen Başla <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
     </header>
 
-    <section id="odeme-bolumu" class="py-20 px-6 max-w-5xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-12">Premium <span class="text-orange-500">Planlar</span></h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-2xl border shadow-sm text-center">
-                <h3 class="font-bold text-lg">Aylık</h3>
-                <p class="text-4xl font-bold my-6">49$</p>
-                <button onclick="toggleOdeme('kutu1')" class="w-full bg-gray-900 text-white py-3 rounded-lg hover:bg-gray-800">Seç</button>
-                <div id="kutu1" class="hidden-box mt-4 p-3 bg-gray-100 rounded text-sm break-all font-mono">
-                    USDT Adresi: 0xABCD...1234 <br>
-                    <button onclick="alert('Kopyalandı!')" class="text-orange-500 font-bold mt-2 underline">Adresi Kopyala</button>
+    <section class="py-12 bg-orange-500 text-white text-center">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-6">
+            <div>
+                <h3 class="text-4xl font-extrabold flex items-center justify-center gap-2 mb-2">
+                    <i class="fas fa-users text-orange-200"></i> +500
+                </h3>
+                <p class="text-orange-100 text-lg">Mutlu Müşteri</p>
+            </div>
+            <div>
+                <h3 class="text-4xl font-extrabold flex items-center justify-center gap-2 mb-2">
+                    <i class="fas fa-check-circle text-orange-200"></i> %99
+                </h3>
+                <p class="text-orange-100 text-lg">Başarı Oranı</p>
+            </div>
+            <div>
+                <h3 class="text-4xl font-extrabold flex items-center justify-center gap-2 mb-2">
+                    <i class="fas fa-clock text-orange-200"></i> 7/24
+                </h3>
+                <p class="text-orange-100 text-lg">Sınırsız Hizmet</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="planlar" class="py-20 px-6 bg-gray-50">
+        <h2 class="text-4xl font-extrabold text-center mb-16">Premium <span class="text-orange-500">Planlar</span></h2>
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+
+            <div class="price-box bg-white p-8 rounded-3xl border border-gray-200 shadow-lg text-center flex flex-col justify-between">
+                <div>
+                    <h3 class="font-bold text-xl mb-3 text-gray-700">Aylık</h3>
+                    <p class="text-5xl font-extrabold mb-6">$49<span class="text-gray-500 text-xl font-medium">/ay</span></p>
+                    <ul class="text-left text-gray-600 mb-8 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> 1 Kullanıcı</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Temel Analitik</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> E-posta Desteği</li>
+                        <li class="flex items-center"><i class="fas fa-times text-red-500 mr-2"></i> Gelişmiş Özellikler Yok</li>
+                    </ul>
+                </div>
+                <button onclick="toggleOdeme('kutu1', '0xABCD1234EFGH5678IJKL9012')" class="w-full bg-gray-900 text-white py-4 rounded-full font-bold text-lg hover:bg-gray-700 transition">Seç</button>
+                <div id="kutu1" class="hidden-content mt-6 p-4 bg-gray-100 rounded-lg text-sm break-all font-mono border border-gray-200">
+                    <p class="text-gray-700 mb-2">USDT TRC20 Adresi:</p>
+                    <div class="flex items-center justify-between bg-white p-2 rounded-md border border-gray-300">
+                        <span id="adres1">0xABCD1234EFGH5678IJKL9012</span>
+                        <button onclick="copyToClipboard('adres1', this)" class="ml-3 text-orange-500 hover:text-orange-600 transition">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">Adresi kopyalayıp ödeme yapın.</p>
                 </div>
             </div>
-            <div class="bg-white p-8 rounded-2xl border-2 border-orange-500 shadow-xl text-center">
-                <h3 class="font-bold text-lg text-orange-500">6 Aylık</h3>
-                <p class="text-4xl font-bold my-6">249$</p>
-                <button onclick="toggleOdeme('kutu2')" class="w-full bg-orange-500 text-white py-3 rounded-lg hover:bg-orange-600">Seç</button>
-                <div id="kutu2" class="hidden-box mt-4 p-3 bg-gray-100 rounded text-sm break-all font-mono">
-                    USDT Adresi: 0xEFGH...5678 <br>
-                    <button onclick="alert('Kopyalandı!')" class="text-orange-500 font-bold mt-2 underline">Adresi Kopyala</button>
+
+            <div class="price-box bg-white p-8 rounded-3xl border-2 border-orange-500 shadow-2xl text-center flex flex-col justify-between transform scale-105">
+                <div>
+                    <span class="bg-orange-500 text-white text-xs px-4 py-1 rounded-full font-bold mb-4 inline-block">POPÜLER</span>
+                    <h3 class="font-bold text-xl mb-3 text-orange-500 mt-2">6 Aylık</h3>
+                    <p class="text-5xl font-extrabold mb-6">$249<span class="text-gray-500 text-xl font-medium">/6 ay</span></p>
+                    <ul class="text-left text-gray-600 mb-8 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> 3 Kullanıcı</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Gelişmiş Analitik</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> 7/24 Canlı Destek</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> API Erişimi</li>
+                    </ul>
+                </div>
+                <button onclick="toggleOdeme('kutu2', '0xEFGH5678IJKL9012MNOP3456')" class="w-full bg-orange-500 text-white py-4 rounded-full font-bold text-lg hover:bg-orange-600 transition">Seç</button>
+                <div id="kutu2" class="hidden-content mt-6 p-4 bg-gray-100 rounded-lg text-sm break-all font-mono border border-gray-200">
+                    <p class="text-gray-700 mb-2">USDT TRC20 Adresi:</p>
+                    <div class="flex items-center justify-between bg-white p-2 rounded-md border border-gray-300">
+                        <span id="adres2">0xEFGH5678IJKL9012MNOP3456</span>
+                        <button onclick="copyToClipboard('adres2', this)" class="ml-3 text-orange-500 hover:text-orange-600 transition">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">Adresi kopyalayıp ödeme yapın.</p>
                 </div>
             </div>
-            <div class="bg-white p-8 rounded-2xl border shadow-sm text-center">
-                <h3 class="font-bold text-lg">1 Yıllık</h3>
-                <p class="text-4xl font-bold my-6">399$</p>
-                <button onclick="toggleOdeme('kutu3')" class="w-full bg-gray-900 text-white py-3 rounded-lg hover:bg-gray-800">Seç</button>
-                <div id="kutu3" class="hidden-box mt-4 p-3 bg-gray-100 rounded text-sm break-all font-mono">
-                    USDT Adresi: 0xIJKL...9012 <br>
-                    <button onclick="alert('Kopyalandı!')" class="text-orange-500 font-bold mt-2 underline">Adresi Kopyala</button>
+
+            <div class="price-box bg-white p-8 rounded-3xl border border-gray-200 shadow-lg text-center flex flex-col justify-between">
+                <div>
+                    <h3 class="font-bold text-xl mb-3 text-gray-700">1 Yıllık</h3>
+                    <p class="text-5xl font-extrabold mb-6">$399<span class="text-gray-500 text-xl font-medium">/yıl</span></p>
+                    <ul class="text-left text-gray-600 mb-8 space-y-2">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Sınırsız Kullanıcı</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Gelişmiş Analitik ve Raporlama</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Özel Entegrasyonlar</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i> Prioriteli Destek</li>
+                    </ul>
+                </div>
+                <button onclick="toggleOdeme('kutu3', '0xQRST7890UVWXYZ1234ABCD5678')" class="w-full bg-gray-900 text-white py-4 rounded-full font-bold text-lg hover:bg-gray-700 transition">Seç</button>
+                <div id="kutu3" class="hidden-content mt-6 p-4 bg-gray-100 rounded-lg text-sm break-all font-mono border border-gray-200">
+                    <p class="text-gray-700 mb-2">USDT TRC20 Adresi:</p>
+                    <div class="flex items-center justify-between bg-white p-2 rounded-md border border-gray-300">
+                        <span id="adres3">0xQRST7890UVWXYZ1234ABCD5678</span>
+                        <button onclick="copyToClipboard('adres3', this)" class="ml-3 text-orange-500 hover:text-orange-600 transition">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">Adresi kopyalayıp ödeme yapın.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <div class="contact-float">
+        <a href="https://wa.me/905XXXXXXXXX" class="btn-float bg-green-500 hover:bg-green-600 transition">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+        <a href="https://t.me/KULLANICI_ADIN" class="btn-float bg-blue-500 hover:bg-blue-600 transition">
+            <i class="fab fa-telegram-plane"></i> Telegram
+        </a>
+    </div>
+
+    <footer class="bg-gray-900 text-white py-12 px-6">
+        <div class="max-w-6xl mx-auto text-center md:text-left grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="text-xl font-bold mb-4">LiveChat AI</h3>
+                <p class="text-gray-400 text-sm">Yapay zeka ile müşteri destek süreçlerinizi optimize edin.</p>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4">Ürün</h3>
+                <ul class="space-y-2 text-gray-400 text-sm">
+                    <li><a href="#" class="hover:text-white transition">Özellikler</a></li>
+                    <li><a href="#" class="hover:text-white transition">Demo</a></li>
+                    <li><a href="#" class="hover:text-white transition">Fiyatlandırma</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4">Şirket</h3>
+                <ul class="space-y-2 text-gray-400 text-sm">
+                    <li><a href="#" class="hover:text-white transition">Hakkımızda</a></li>
+                    <li><a href="#" class="hover:text-white transition">Kariyer</a></li>
+                    <li><a href="#" class="hover:text-white transition">İletişim</a></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-4">Destek</h3>
+                <ul class="space-y-2 text-gray-400 text-sm">
+                    <li><a href="#" class="hover:text-white transition">Yardım Merkezi</a></li>
+                    <li><a href="#" class="hover:text-white transition">Gizlilik Politikası</a></li>
+                    <li><a href="#" class="hover:text-white transition">Kullanım Koşulları</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 mt-10 pt-8 text-center text-gray-500 text-sm">
+            <p>©️ 2026 LiveChat AI. Tüm hakları saklıdır.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
     <script>
+        // Krypton adreslerini kopyalama fonksiyonu
+        function copyToClipboard(elementId, buttonElement) {
+            const el = document.getElementById(elementId);
+            const textToCopy = el.textContent; // span içindeki metni al
+
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                // Başarılı kopyalama sonrası butonu değiştir
+                buttonElement.innerHTML = '<i class="fas fa-check text-green-500"></i> Kopyalandı!';
+                buttonElement.style.color = '#10B981'; // Tailwind green-500
+
+                // Birkaç saniye sonra eski haline döndür
+                setTimeout(() => {
+                    buttonElement.innerHTML = '<i class="fas fa-copy"></i>';
+                    buttonElement.style.color = '#f97316'; // Tailwind orange-500
+                }, 2000);
+            }).catch(err => {
+                console.error('Kopyalama hatası:', err);
+                alert('Adres kopyalanamadı, lütfen manuel kopyalayın.');
+            });
+        }
+
+        // Ödeme kutusunu açma/kapama fonksiyonu
         function toggleOdeme(id) {
             const box = document.getElementById(id);
-            box.style.display = (box.style.display === 'block') ? 'none' : 'block';
+            // Eğer kutu görünüyorsa gizle, gizliyse göster
+            if (box.style.display === 'block') {
+                box.style.display = 'none';
+            } else {
+                box.style.display = 'block';
+            }
         }
     </script>
 </body>
