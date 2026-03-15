@@ -9,6 +9,7 @@
         .contact-float { position: fixed; bottom: 20px; right: 20px; z-index: 100; display: flex; flex-direction: column; gap: 10px; }
         .btn-float { padding: 12px 20px; border-radius: 50px; font-weight: bold; color: white; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .marquee { overflow: hidden; white-space: nowrap; background: #f97316; color: white; padding: 10px 0; font-weight: bold; }
+        .hidden-box { display: none; } /* Başta gizli olacak */
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 font-sans">
@@ -25,43 +26,44 @@
         <a href="#odeme-bolumu" class="bg-orange-500 text-white px-8 py-4 rounded-full font-bold hover:bg-orange-600 transition">Hemen Başla</a>
     </header>
 
-    <section class="py-10 bg-orange-500 text-white text-center">
-        <div class="max-w-4xl mx-auto grid grid-cols-3 gap-8">
-            <div><h3 class="text-3xl font-bold">+500</h3><p class="text-orange-100">Mutlu Müşteri</p></div>
-            <div><h3 class="text-3xl font-bold">%99</h3><p class="text-orange-100">Başarı Oranı</p></div>
-            <div><h3 class="text-3xl font-bold">7/24</h3><p class="text-orange-100">Sınırsız Hizmet</p></div>
-        </div>
-    </section>
-
     <section id="odeme-bolumu" class="py-20 px-6 max-w-5xl mx-auto">
         <h2 class="text-3xl font-bold text-center mb-12">Premium <span class="text-orange-500">Planlar</span></h2>
         <div class="grid md:grid-cols-3 gap-8">
             <div class="bg-white p-8 rounded-2xl border shadow-sm text-center">
                 <h3 class="font-bold text-lg">Aylık</h3>
                 <p class="text-4xl font-bold my-6">49$</p>
-                <div class="text-sm text-gray-600 mb-4">Crypto Adresini Kopyala</div>
+                <button onclick="toggleOdeme('kutu1')" class="w-full bg-gray-900 text-white py-3 rounded-lg hover:bg-gray-800">Seç</button>
+                <div id="kutu1" class="hidden-box mt-4 p-3 bg-gray-100 rounded text-sm break-all font-mono">
+                    USDT Adresi: 0xABCD...1234 <br>
+                    <button onclick="alert('Kopyalandı!')" class="text-orange-500 font-bold mt-2 underline">Adresi Kopyala</button>
+                </div>
             </div>
-            <div class="bg-white p-8 rounded-2xl border-2 border-orange-500 shadow-xl text-center transform md:scale-105">
-                <span class="bg-orange-500 text-white text-xs px-3 py-1 rounded-full font-bold">POPÜLER</span>
-                <h3 class="font-bold text-lg text-orange-500 mt-4">6 Aylık</h3>
+            <div class="bg-white p-8 rounded-2xl border-2 border-orange-500 shadow-xl text-center">
+                <h3 class="font-bold text-lg text-orange-500">6 Aylık</h3>
                 <p class="text-4xl font-bold my-6">249$</p>
-                <div class="text-sm text-gray-600 mb-4">Crypto Adresini Kopyala</div>
+                <button onclick="toggleOdeme('kutu2')" class="w-full bg-orange-500 text-white py-3 rounded-lg hover:bg-orange-600">Seç</button>
+                <div id="kutu2" class="hidden-box mt-4 p-3 bg-gray-100 rounded text-sm break-all font-mono">
+                    USDT Adresi: 0xEFGH...5678 <br>
+                    <button onclick="alert('Kopyalandı!')" class="text-orange-500 font-bold mt-2 underline">Adresi Kopyala</button>
+                </div>
             </div>
             <div class="bg-white p-8 rounded-2xl border shadow-sm text-center">
                 <h3 class="font-bold text-lg">1 Yıllık</h3>
                 <p class="text-4xl font-bold my-6">399$</p>
-                <div class="text-sm text-gray-600 mb-4">Crypto Adresini Kopyala</div>
+                <button onclick="toggleOdeme('kutu3')" class="w-full bg-gray-900 text-white py-3 rounded-lg hover:bg-gray-800">Seç</button>
+                <div id="kutu3" class="hidden-box mt-4 p-3 bg-gray-100 rounded text-sm break-all font-mono">
+                    USDT Adresi: 0xIJKL...9012 <br>
+                    <button onclick="alert('Kopyalandı!')" class="text-orange-500 font-bold mt-2 underline">Adresi Kopyala</button>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 bg-gray-900 text-white text-center">
-        <p>©️ 2026 LiveChat AI. Tüm hakları saklıdır.</p>
-    </footer>
-
-    <div class="contact-float">
-        <a href="https://wa.me/905XXXXXXXXX" class="btn-float bg-green-500 hover:bg-green-600 transition">💬 WhatsApp</a>
-        <a href="https://t.me/KULLANICI_ADIN" class="btn-float bg-blue-500 hover:bg-blue-600 transition">✈️ Telegram</a>
-    </div>
+    <script>
+        function toggleOdeme(id) {
+            const box = document.getElementById(id);
+            box.style.display = (box.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
 </body>
 </html>
