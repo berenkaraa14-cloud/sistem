@@ -9,63 +9,69 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
         body { font-family: 'Inter', sans-serif; }
+        .bg-gradient-hero { background: linear-gradient(to right, #fdf2e9, #f9f0ec); }
+        .text-gradient { background: linear-gradient(to right, #e87a2a, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .contact-float { position: fixed; bottom: 20px; right: 20px; z-index: 100; display: flex; flex-direction: column; gap: 10px; }
+        .btn-float { padding: 12px 20px; border-radius: 50px; font-weight: bold; color: white; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .price-box { transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
+        .price-box:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
         .hidden-content { display: none; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-gray-800 antialiased">
 
-    <nav class="sticky top-0 z-50 bg-white shadow-sm py-4 px-6 flex justify-between items-center">
+    <nav class="sticky top-0 z-50 bg-white shadow-sm py-4 px-6 md:px-10 flex justify-between items-center">
         <div class="text-3xl font-extrabold text-orange-500">LiveChat AI</div>
-        <div class="hidden md:flex space-x-8 font-medium text-gray-600">
+        <div class="hidden md:flex space-x-6 text-gray-600 font-medium">
             <a href="#hakkimizda" class="hover:text-orange-500">Hakkımızda</a>
             <a href="#planlar" class="hover:text-orange-500">Fiyatlandırma</a>
             <a href="#kaynaklar" class="hover:text-orange-500">Kaynaklar</a>
         </div>
-        <button class="bg-orange-500 text-white px-5 py-2 rounded-full font-bold hover:bg-orange-600">Başla</button>
+        <a href="#planlar" class="bg-orange-500 text-white px-5 py-2 rounded-full font-bold hover:bg-orange-600">Başla</a>
     </nav>
 
-    <header class="py-20 text-center bg-white">
-        <h1 class="text-5xl font-extrabold mb-6">Müşterilerinizle <span class="text-orange-500">bağ kurun.</span></h1>
-        <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">Yapay zeka ile destek süreçlerinizi otomatikleştirin.</p>
+    <header class="bg-gradient-hero py-20 text-center px-6">
+        <h1 class="text-5xl font-extrabold mb-6">Müşterilerinizle <span class="text-gradient">bağ kurun.</span></h1>
+        <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">Yapay zeka ile destek süreçlerinizi %90 otomatikleştirin.</p>
         <a href="#planlar" class="bg-orange-500 text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-orange-600">Hemen Başla</a>
     </header>
 
-    <section id="hakkimizda" class="py-20 px-6 bg-gray-100">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-8">Neden <span class="text-orange-500">Biz?</span></h2>
+    <section id="hakkimizda" class="py-20 px-6 bg-white text-center">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold mb-8">Neden <span class="text-orange-500">LiveChat AI?</span></h2>
             <p class="text-lg text-gray-700 leading-relaxed">
-                LiveChat AI, 2026 yılından bu yana binlerce işletmenin müşteri memnuniyetini en üst seviyeye taşımasına yardımcı olmaktadır. 
-                Sektördeki en hızlı ve en güvenilir yapay zeka altyapısını sunarak, verilerinizi koruyor ve 7/24 kesintisiz destek sağlıyoruz. 
-                Güveniniz bizim en değerli varlığımızdır.
+                2026'dan bu yana binlerce işletmeye profesyonel yapay zeka desteği sunuyoruz. Veri gizliliğiniz bizim için önceliktir; 
+                tüm görüşmeleriniz uçtan uca şifrelenir. Güvenilir altyapımızla 7/24 hizmetinizdeyiz.
             </p>
         </div>
     </section>
 
     <section id="planlar" class="py-20 px-6">
-        <h2 class="text-4xl font-bold text-center mb-16">Fiyatlandırma</h2>
+        <h2 class="text-4xl font-bold text-center mb-16">Premium Paketler</h2>
         <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
-            <div class="bg-white p-8 rounded-3xl shadow-lg border text-center">
-                <h3 class="text-xl font-bold mb-4">Aylık</h3>
+            <div class="price-box bg-white p-8 rounded-3xl border shadow-lg text-center">
+                <h3 class="font-bold text-xl mb-4">Aylık</h3>
                 <p class="text-5xl font-extrabold mb-6">$39</p>
-                <button onclick="toggleOdeme('kutu1')" class="w-full bg-gray-900 text-white py-4 rounded-full font-bold hover:bg-gray-700">Seç</button>
+                <button onclick="toggleOdeme('kutu1')" class="w-full bg-gray-900 text-white py-4 rounded-full font-bold">Seç</button>
                 <div id="kutu1" class="hidden-content mt-6 p-4 bg-gray-100 rounded-lg text-sm break-all font-mono">
-                    USDT TRC20: TQG...x999 <button onclick="alert('Kopyalandı!')" class="text-orange-500 font-bold ml-2">Kopyala</button>
+                    USDT Adresi: TQG...x999 <button onclick="alert('Kopyalandı!')" class="text-orange-500 font-bold ml-2">Kopyala</button>
                 </div>
             </div>
-            <div class="bg-white p-8 rounded-3xl shadow-2xl border-2 border-orange-500 text-center scale-105">
-                <h3 class="text-xl font-bold text-orange-500 mb-4">6 Aylık</h3>
+            <div class="price-box bg-white p-8 rounded-3xl border-2 border-orange-500 shadow-2xl text-center scale-105">
+                <span class="bg-orange-500 text-white text-xs px-4 py-1 rounded-full font-bold mb-4 inline-block">POPÜLER</span>
+                <h3 class="font-bold text-xl text-orange-500 mb-4">6 Aylık</h3>
                 <p class="text-5xl font-extrabold mb-6">$99</p>
-                <button onclick="toggleOdeme('kutu2')" class="w-full bg-orange-500 text-white py-4 rounded-full font-bold hover:bg-orange-600">Seç</button>
+                <button onclick="toggleOdeme('kutu2')" class="w-full bg-orange-500 text-white py-4 rounded-full font-bold">Seç</button>
                 <div id="kutu2" class="hidden-content mt-6 p-4 bg-gray-100 rounded-lg text-sm break-all font-mono">
-                    USDT TRC20: TQG...x888 <button onclick="alert('Kopyalandı!')" class="text-orange-500 font-bold ml-2">Kopyala</button>
+                    USDT Adresi: TQG...x888 <button onclick="alert('Kopyalandı!')" class="text-orange-500 font-bold ml-2">Kopyala</button>
                 </div>
             </div>
-            <div class="bg-white p-8 rounded-3xl shadow-lg border text-center">
-                <h3 class="text-xl font-bold mb-4">1 Yıllık</h3>
+            <div class="price-box bg-white p-8 rounded-3xl border shadow-lg text-center">
+                <h3 class="font-bold text-xl mb-4">1 Yıllık</h3>
                 <p class="text-5xl font-extrabold mb-6">$199</p>
-                <button onclick="toggleOdeme('kutu3')" class="w-full bg-gray-900 text-white py-4 rounded-full font-bold hover:bg-gray-700">Seç</button>
+                <button onclick="toggleOdeme('kutu3')" class="w-full bg-gray-900 text-white py-4 rounded-full font-bold">Seç</button>
                 <div id="kutu3" class="hidden-content mt-6 p-4 bg-gray-100 rounded-lg text-sm break-all font-mono">
-                    USDT TRC20: TQG...x777 <button onclick="alert('Kopyalandı!')" class="text-orange-500 font-bold ml-2">Kopyala</button>
+                    USDT Adresi: TQG...x777 <button onclick="alert('Kopyalandı!')" class="text-orange-500 font-bold ml-2">Kopyala</button>
                 </div>
             </div>
         </div>
@@ -75,15 +81,20 @@
         <h2 class="text-4xl font-bold mb-12">Kaynaklar & Destek</h2>
         <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 text-left">
             <div class="p-6 bg-gray-800 rounded-xl">
-                <h4 class="font-bold text-lg mb-2"><i class="fas fa-book mr-2"></i> Kullanım Kılavuzu</h4>
-                <p class="text-gray-400">Sistemimizi 5 dakikada kurmak için adım adım rehberimizi inceleyin.</p>
+                <h4 class="font-bold mb-2"><i class="fas fa-book mr-2"></i> Kullanım Kılavuzu</h4>
+                <p class="text-gray-400 text-sm">Sistemimizi 5 dakikada kurmak için rehberimize göz atın.</p>
             </div>
             <div class="p-6 bg-gray-800 rounded-xl">
-                <h4 class="font-bold text-lg mb-2"><i class="fas fa-headset mr-2"></i> Teknik Destek</h4>
-                <p class="text-gray-400">Sorunlarınız için teknik ekibimize WhatsApp üzerinden ulaşabilirsiniz.</p>
+                <h4 class="font-bold mb-2"><i class="fas fa-headset mr-2"></i> Teknik Destek</h4>
+                <p class="text-gray-400 text-sm">Sorunlarınız için teknik ekibimize dilediğiniz an ulaşın.</p>
             </div>
         </div>
     </section>
+
+    <div class="contact-float">
+        <a href="#" class="btn-float bg-green-500"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="#" class="btn-float bg-blue-500"><i class="fab fa-telegram-plane"></i> Telegram</a>
+    </div>
 
     <script>
         function toggleOdeme(id) {
