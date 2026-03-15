@@ -2,67 +2,53 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LiveChat AI | Premium Yazılım</title>
+    <title>LiveChat AI</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .contact-float { position: fixed; bottom: 20px; right: 20px; z-index: 100; display: flex; flex-direction: column; gap: 10px; }
-        .btn-float { padding: 12px 20px; border-radius: 50px; font-weight: bold; color: white; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .marquee { overflow: hidden; white-space: nowrap; background: #f97316; color: white; padding: 10px 0; font-weight: bold; }
-    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans">
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
-    <div class="marquee">⚡ Sınırlı Süreli Kampanya: 6 Aylık Paketlerde %20 İndirim Fırsatını Kaçırmayın! ⚡</div>
-
-    <nav class="flex justify-between items-center py-6 px-10 bg-white border-b sticky top-0 z-50">
-        <div class="text-2xl font-bold text-orange-500 tracking-tighter">LiveChat AI</div>
-    </nav>
-
-    <header class="text-center py-20 px-6 bg-white">
-        <h1 class="text-5xl font-extrabold mb-6">Müşterilerinizle anında <span class="text-orange-500">bağ kurun.</span></h1>
-        <p class="text-xl text-gray-500 mb-10 max-w-2xl mx-auto">Yapay zeka destekli altyapımızla destek süreçlerinizi %90 otomatikleştirin.</p>
-        <a href="login.html" class="bg-orange-500 text-white px-8 py-4 rounded-full font-bold hover:bg-orange-600 transition">Hemen Başla</a>
-    </header>
-
-    <section class="py-10 bg-orange-500 text-white text-center">
-        <div class="max-w-4xl mx-auto grid grid-cols-3 gap-8">
-            <div><h3 class="text-3xl font-bold">+500</h3><p class="text-orange-100">Mutlu Müşteri</p></div>
-            <div><h3 class="text-3xl font-bold">%99</h3><p class="text-orange-100">Başarı Oranı</p></div>
-            <div><h3 class="text-3xl font-bold">7/24</h3><p class="text-orange-100">Sınırsız Hizmet</p></div>
-        </div>
-    </section>
-
-    <section id="planlar" class="py-20 px-6 max-w-5xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-12">Premium <span class="text-orange-500">Planlar</span></h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white p-8 rounded-2xl border shadow-sm text-center">
-                <h3 class="font-bold text-lg">Aylık</h3>
-                <p class="text-4xl font-bold my-6">49$</p>
-                <a href="login.html" class="block w-full bg-gray-900 text-white py-3 rounded-lg hover:bg-gray-800">Seç</a>
-            </div>
-            <div class="bg-white p-8 rounded-2xl border-2 border-orange-500 shadow-xl text-center transform md:scale-105">
-                <span class="bg-orange-500 text-white text-xs px-3 py-1 rounded-full font-bold">POPÜLER</span>
-                <h3 class="font-bold text-lg text-orange-500 mt-4">6 Aylık</h3>
-                <p class="text-4xl font-bold my-6">249$</p>
-                <a href="login.html" class="block w-full bg-orange-500 text-white py-3 rounded-lg hover:bg-orange-600">Seç</a>
-            </div>
-            <div class="bg-white p-8 rounded-2xl border shadow-sm text-center">
-                <h3 class="font-bold text-lg">1 Yıllık</h3>
-                <p class="text-4xl font-bold my-6">399$</p>
-                <a href="login.html" class="block w-full bg-gray-900 text-white py-3 rounded-lg hover:bg-gray-800">Seç</a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="py-12 bg-gray-900 text-white text-center">
-        <p>©️ 2026 LiveChat AI. Tüm hakları saklıdır.</p>
-    </footer>
-
-    <div class="contact-float">
-        <a href="https://wa.me/905XXXXXXXXX" class="btn-float bg-green-500 hover:bg-green-600 transition">💬 WhatsApp</a>
-        <a href="https://t.me/KULLANICI_ADIN" class="btn-float bg-blue-500 hover:bg-blue-600 transition">✈️ Telegram</a>
+    <div id="ana-ekran" class="text-center p-10 bg-white rounded-2xl shadow-xl">
+        <h1 class="text-4xl font-bold mb-4">LiveChat AI'a Hoş Geldin</h1>
+        <button onclick="kayitFormunuGoster()" class="bg-orange-500 text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-orange-600 transition">Hemen Başla</button>
     </div>
+
+    <script>
+        function kayitFormunuGoster() {
+            // Butona basınca ana ekranı siliyor ve yerine kayıt formunu getiriyor
+            document.getElementById('ana-ekran').innerHTML = `
+                <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-sm">
+                    <h2 class="text-2xl font-bold mb-6 text-center">Hesap Oluştur</h2>
+                    <input type="text" id="ad_soyad" placeholder="Ad Soyad" class="w-full p-3 mb-4 border rounded-lg">
+                    <input type="email" id="email" placeholder="E-posta" class="w-full p-3 mb-4 border rounded-lg">
+                    <input type="password" id="password" placeholder="Şifre" class="w-full p-3 mb-4 border rounded-lg">
+                    <button id="kayitBtn" class="w-full bg-orange-500 text-white py-3 rounded-lg font-bold">Kayıt Ol</button>
+                </div>
+            `;
+            
+            // Supabase işlemleri buraya (Form oluştuktan sonra buton çalışsın diye)
+            const supabase = supabase.createClient(
+                'https://xkjpitfhkhkaieggzcwlv.supabase.co', 
+                'sb_publishable_e0_kcSm46jmgGmfRcbQe2Q_aAKAvvy-'
+            );
+
+            document.getElementById('kayitBtn').addEventListener('click', async () => {
+                const ad = document.getElementById('ad_soyad').value;
+                const em = document.getElementById('email').value;
+                const pw = document.getElementById('password').value;
+
+                const { error } = await supabase.from('profiles').insert([
+                    { full_name: ad, email: em, password: pw }
+                ]);
+
+                if (error) {
+                    alert("Hata: " + error.message);
+                } else {
+                    alert("Kayıt başarılı!");
+                    location.reload(); // Sayfayı yenileyerek başa döner
+                }
+            });
+        }
+    </script>
 </body>
 </html>
-<h1>Tebrikler! Ana sayfaya ulaştın.</h1>
